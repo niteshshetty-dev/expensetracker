@@ -1,0 +1,108 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: black;
+  color: white;
+}
+
+.cards {
+  background: #626262;
+  display: flex;
+  justify-content: space-between;
+  margin: 2em;
+  border-radius: 15px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  width: 760px;
+  height: 181px;
+  margin: 2em;
+  opacity: 1;
+  border-radius: 15px;
+}
+.card {
+  width: 355.41px;
+  height: 181px;
+  border-radius: 15px;
+  background: #9b9b9b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.balance-amount {
+  color: #9dff5b;
+}
+
+.button {
+  width: 167.65px;
+  height: 38px;
+  border: 0;
+  border-radius: 15px;
+  opacity: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: white;
+}
+
+.expense-amount {
+  color: #f4bb4a;
+}
+
+.green {
+  background: linear-gradient(90deg, #b5dc52 0%, #89e148 100%);
+}
+
+.red {
+  background: linear-gradient(90deg, #ff9595 0%, #ff4747 80%, #ff3838 100%);
+}
+
+.chart-card {
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  gap: 16px;
+}
+
+.legend {
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.legend span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #ffffff;
+}
+
+.legend span::before {
+  content: "";
+  width: 18px;
+  height: 6px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.legend .food::before {
+  background: #8b00ff;
+}
+
+.legend .entertainment::before {
+  background: #ff9f1c;
+}
+
+.legend .travel::before {
+  background: #ffe600;
+}
