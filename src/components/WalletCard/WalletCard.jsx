@@ -1,12 +1,7 @@
-export default function Wallet({ balance, onAdd }) {
+export default function WalletCard() {
   return (
-    <div className="card wallet-card">
-      <h2>
-        Wallet Balance: <span className="balance-amount">₹{balance}</span>
-      </h2>
-      <button type="button" className="button green" onClick={onAdd}>
-        + Add Income
-      </button>
+    <div className="wallet-card">
+      <h2>Wallet</h2>
     </div>
   );
 }

@@ -1,12 +1,7 @@
-export default function Expense({ total, onAdd }) {
+export default function ExpenseCard() {
   return (
-    <div className="card">
-      <h2>
-        Expenses: <span className="expense-amount">₹{total}</span>
-      </h2>
-      <button type="button" className="button red" onClick={onAdd}>
-        + Add Expense
-      </button>
+    <div className="esxpense-card">
+      <h2>Expense</h2>
     </div>
   );
 }
