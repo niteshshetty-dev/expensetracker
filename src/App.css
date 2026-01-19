@@ -11,23 +11,20 @@ body {
 }
 
 .expense-tracker {
-  display: flex;
-  flex-direction: column;
-}
-
-.expense-tracker-body {
-  display: flex;
-  flex-direction: column;
+  background: black;
+  padding: 24px;
+  min-height: 100vh;
 }
 
 .summary-section {
-  display: flex;
-  justify-content: space-between;
-}
-
-.cards {
-  display: flex;
-  flex: 3;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  padding: 48px;
+  background: #626262;
+  border-radius: 10px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  margin-bottom: 32px;
 }
 
 .summary-chart {
@@ -36,3 +33,63 @@ body {
 .content-section {
   display: flex;
 }
+
+.card {
+  background: #9b9b9b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 45px 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.cardTitle {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+.cardTitle span {
+  font-weight: 700;
+}
+.success {
+  color: #9dff5b;
+}
+.failure {
+  color: #f4bb4a;
+}
+
+.btn {
+  background: #e3e3e3;
+  border: 0;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 15px;
+  padding: 12px 30px;
+  color: #000;
+  cursor: pointer;
+}
+
+.btn-green {
+  background: linear-gradient(90deg, #b5dc52, #89e148);
+  color: #fff;
+}
+
+.btn-red {
+  background: linear-gradient(90deg, #ff9595, #ff4747, #ff3838);
+  color: #fff;
+}
+
+.shadow {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* .btn {
+  border-radius: 1rem;
+  padding: 0.0625rem 0.625rem;
+  width: 10.5rem;
+  height: 2.25rem;
+} */

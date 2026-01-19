@@ -1,7 +1,12 @@
-export default function WalletCard() {
+export default function WalletCard({ total }) {
   return (
-    <div className="wallet-card">
-      <h2>Wallet</h2>
+    <div className="card wallet-card">
+      <h2 className="cardTitle">
+        Wallet Balance: <span className="success">{total}</span>
+      </h2>
+      <button type="button" className="btn btn-green shadow">
+        + Add Income
+      </button>
     </div>
   );
 }
