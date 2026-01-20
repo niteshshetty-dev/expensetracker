@@ -4,11 +4,11 @@ import WalletCard from "./components/WalletCard/WalletCard";
 import ExpenseCard from "./components/ExpenseCard/ExpenseCard";
 import SummaryChart from "./components/SummaryChart/SummaryChart";
 import ExpenseList from "./components/ExpenseList/ExpenseList";
-import TrendChart from "./components/TrendChart/TrendChart";
 import { useEffect, useState } from "react";
 import ModalContainer from "./components/Modal/ModalContainer";
 import IncomeModal from "./components/IncomeModal/IncomeModal";
 import ExpenseModal from "./components/ExpenseModal/ExpenseModal";
+import TrendChart from "./components/TrendChart/TrendChart";
 
 export default function App() {
   const [balance, setBalance] = useState(0);
@@ -108,7 +108,13 @@ export default function App() {
           expense={expense}
           onAdd={() => setIsExpenseModalOpen(true)}
         />
-        <SummaryChart />
+        <SummaryChart
+          data={[
+            { name: "Food", value: categorySpends.food },
+            { name: "Travel", value: categorySpends.travel },
+            { name: "Entertainment", value: categorySpends.entertainment },
+          ]}
+        />
       </div>
 
       <div className="content-section">
@@ -118,6 +124,13 @@ export default function App() {
           title="Recent Transactions"
           balance={balance}
           setBalance={setBalance}
+        />
+        <TrendChart
+          data={[
+            { name: "Food", value: categoryCount.food },
+            { name: "Travel", value: categoryCount.travel },
+            { name: "Entertainment", value: categoryCount.entertainment },
+          ]}
         />
       </div>
       <ModalContainer

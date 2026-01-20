@@ -100,3 +100,22 @@ body {
   grid-template-columns: 2fr 1fr;
   gap: 32px;
 }
+
+@media (max-width: 767px) {
+  .expense-tracker h1 {
+    text-align: center;
+  }
+  .summary-section {
+    padding: 16px;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .content-section {
+    padding: 16px;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .transactionsWrapper {
+    grid-template-columns: 1fr;
+  }
+}
