@@ -112,8 +112,13 @@ export default function App() {
       </div>
 
       <div className="content-section">
-        <ExpenseList />
-        <TrendChart />
+        <ExpenseList
+          transactions={expenseList}
+          editTransactions={setExpenseList}
+          title="Recent Transactions"
+          balance={balance}
+          setBalance={setBalance}
+        />
       </div>
       <ModalContainer
         isOpen={isIncomeModalOpen}

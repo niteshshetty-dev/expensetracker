@@ -1,9 +1,9 @@
-import TransactionCard from "../TransactionCard/TransactionCard";
-import styles from "./TransactionList.module.css";
-import Modal from "../Modal/ModalContainer";
-import ExpenseForm from "../Forms/ExpenseForm/ExpenseForm";
+import styles from "./ExpenseList.module.css";
+import ModalContainer from "../Modal/ModalContainer";
+import ExpenseModal from "../ExpenseModal/ExpenseModal";
 import { useEffect, useState } from "react";
 import Pagination from "../Pagination/Pagination";
+import TransactionCard from "../TransactionCard/TransactionCrad";
 
 export default function ExpenseList({
   transactions,
@@ -77,8 +77,8 @@ export default function ExpenseList({
         </div>
       )}
 
-      <Modal isOpen={isDisplayEditor} setIsOpen={setIsDisplayEditor}>
-        <ExpenseForm
+      <ModalContainer isOpen={isDisplayEditor} setIsOpen={setIsDisplayEditor}>
+        <ExpenseModal
           editId={editId}
           expenseList={transactions}
           setExpenseList={editTransactions}
@@ -86,7 +86,7 @@ export default function ExpenseList({
           balance={balance}
           setBalance={setBalance}
         />
-      </Modal>
+      </ModalContainer>
     </div>
   );
 }
