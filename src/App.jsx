@@ -6,12 +6,18 @@ import SummaryChart from "./components/SummaryChart/SummaryChart";
 import ExpenseList from "./components/ExpenseList/ExpenseList";
 import TrendChart from "./components/TrendChart/TrendChart";
 import { useEffect, useState } from "react";
+import ModalContainer from "./components/Modal/ModalContainer";
+import IncomeModal from "./components/IncomeModal/IncomeModal";
+import ExpenseModal from "./components/ExpenseModal/ExpenseModal";
 
 export default function App() {
   const [balance, setBalance] = useState(0);
   const [expense, setExpense] = useState(0);
   const [expenseList, setExpenseList] = useState([]);
   const [isMounted, setIsMounted] = useState(false);
+
+  const [isIncomeModalOpen, setIsIncomeModalOpen] = useState(false);
+  const [isExpenseModalOpen, setIsExpenseModalOpen] = useState(false);
 
   const [categorySpends, setCategorySpends] = useState({
     food: 0,
@@ -27,9 +33,10 @@ export default function App() {
   useEffect(() => {
     const localBalance = localStorage.getItem("balance");
     if (localBalance) {
-      setBalance(localBalance);
+      setBalance(Number(localBalance));
     } else {
       localStorage.setItem("balance", 5000);
+      setBalance(5000);
     }
     const items = JSON.parse(localStorage.getItem("expenses"));
     setExpenseList(items || []);
@@ -96,8 +103,11 @@ export default function App() {
     <div className="expense-tracker">
       <Header />
       <div className="summary-section">
-        <WalletCard total={balance} />
-        <ExpenseCard expense={expense} />
+        <WalletCard total={balance} onAdd={() => setIsIncomeModalOpen(true)} />
+        <ExpenseCard
+          expense={expense}
+          onAdd={() => setIsExpenseModalOpen(true)}
+        />
         <SummaryChart />
       </div>
 
@@ -105,6 +115,25 @@ export default function App() {
         <ExpenseList />
         <TrendChart />
       </div>
+      <ModalContainer
+        isOpen={isIncomeModalOpen}
+        handleClose={() => setIsIncomeModalOpen(false)}
+      >
+        <IncomeModal setBalance={setBalance} setIsOpen={setIsIncomeModalOpen} />
+      </ModalContainer>
+      <ModalContainer
+        isOpen={isExpenseModalOpen}
+        handleClose={() => setIsExpenseModalOpen(false)}
+      >
+        <ExpenseModal
+          setIsOpen={setIsExpenseModalOpen}
+          setBalance={setBalance}
+          expenseList={expenseList}
+          setExpenseList={setExpenseList}
+          balance={balance}
+          editId={false}
+        />
+      </ModalContainer>
     </div>
   );
 }
